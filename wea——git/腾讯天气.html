@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="GBK">
+    <title>腾讯天气</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!--[if lte IE 7]><meta http-equiv="refresh" content="0; url=http://sports.qq.com/kbsweb/upgrade.htm"><![endif]-->
+    <meta name="description" content="腾讯天气">
+    <meta name="keywords" content="天气 腾讯天气 天气预报 空气质量">
+
+</head>
+
+<body><input id="i-ie-bug" style="position: absolute;height: 1px;border-width: 0px;z-index: 0;width: 1px">
+    <div id="ct-header">
+        <div class="container"><img src="//mat1.gtimg.com/pingjs/ext2020/weather/2017/images/logo-c3cae1c3ef.png"
+                alt="logo" id="logo">
+            <div id="ct-location">
+                <div id="ct-show">
+                    <p id="txt-cur-location"></p>
+                    <div id="ct-attention">
+                        <h3 id="titl">关注的城市</h3>
+                        <ol id="ls-attention"></ol>
+                    </div>
+                </div><a href="javascript:;" id="btn-attention"></a>
+                <p id="tips-attention-size">最多只能添加5个城市</p>
+                <div id="ct-search"><input type="input" id="i-location" placeholder="搜索市、区、县等">
+                    <ul id="ls-match"></ul>
+                    <div id="ct-hot-city">
+                        <p class="tit" id="tit-cur" style="margin-bottom: 12px">当前定位</p>
+                        <p id="cur-location" class="match"></p>
+                        <div id="ct-history">
+                            <p class="tit">历史记录</p><a id="btn-clean">清除</a>
+                            <ul class="ls-city" id="ls-history"></ul>
+                        </div>
+                        <p class="tit">热门城市</p>
+                        <ul id="ls-hot-city" class="ls-city"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="ct-current">
+        <div class="container">
+            <p id="txt-pub-time"></p>
+            <div id="ct-main">
+                <p id="txt-temperature"></p>
+                <p id="txt-name"></p>
+                <div id="ct-aqi"></div>
+                <ul id="ls-warning"></ul>
+            </div>
+            <div id="ct-other">
+                <p class="item"><i class="icon" id="icon-wind"></i> <span class="txt" id="txt-wind"></span></p>
+                <p class="item"><i class="icon" id="icon-humidity"></i> <span class="txt" id="txt-humidity"></span></p>
+                <p class="item"><i class="icon" id="icon-kPa"></i> <span class="txt" id="txt-kPa"></span></p>
+                <p class="item" id="info-limit"><i class="icon" id="icon-limit"></i> <span class="txt"
+                        id="txt-limit"></span></p>
+            </div>
+            <div id="ct-tips">
+                <p id="txt-tips"></p><a href="javascript:;" id="btn-tip-switch"></a>
+            </div>
+            <div id="ct-current-weather"></div>
+        </div>
+    </div>
+    <div class="container" id="ct-hours">
+        <h2 id="title">逐小时预报</h2><a id="txt-source" href="http://www.weather.com.cn/" target="_blank">数据来源于中国天气网</a>
+        <div class="ct-page-ctrl"><a href="javascript:;" id="btn-prev" class="btn"></a> <a href="javascript:;"
+                id="btn-next" class="btn"></a></div>
+        <div id="ct-weather">
+            <ol id="ls-weather-hour" class="ls-weather"></ol>
+        </div>
+    </div>
+    <div class="container" style="margin-bottom: 35px">
+        <div id="ct-7-days"><a id="link-15" href="http://www.weather.com.cn/weather1d/101010100.shtml" data-boss="swryb"
+                target="_blank">15日天气预报</a>
+            <h2 id="title">7日天气预报</h2>
+            <div id="ct-weather" class="box-content">
+                <ol id="ls-weather-day" class="ls-weather"></ol>
+                <div id="chart-days"></div>
+            </div>
+        </div>
+        <div id="ct-living-index">
+            <div class="ct-page-ctrl"><a href="javascript:;" id="btn-prev" class="btn"></a> <a href="javascript:;"
+                    id="btn-next" class="btn"></a></div>
+            <h2 id="title">生活指数</h2>
+            <div id="ct-pages">
+                <div id="ct-content">
+                    <ul id="ls-living1" class="page"></ul>
+                    <ul id="ls-living2" class="page"></ul>
+                </div>
+            </div>
+            <!-- <div id="ct-pages-index">
+                <a href="javascript:;" class="btn cur" id="page1"></a>
+                <a href="javascript:;" class="btn" id="page2"></a>
+            </div> -->
+        </div>
+    </div>
+    <div class="container" id="ct-ad">
+        <div id="ad-outer">
+            <script type="text/javascript" language="javascript" charset="utf-8"
+                src="//static.mediav.com/js/mvf_pm_slider.js"></script>
+            <script>BANNER_SLIDER({
+                    "w": 1000,
+                    "showid": "Fs9xXF",
+                    "rshowid": "Fs9xXF",
+                    "inject": "inlay",
+                    "layout": "magicCubeScene",
+                    "style": "magicCube",
+                    "row": "1",
+                    "line": "11"
+                });</script>
+        </div><a href="https://support.qq.com/products/16392" target="_blank" class="link-feedback"></a>
+    </div>
+    <!-- <div class="container">
+        <div id="ct-information" class="box">
+            <h2 class="box-title">相关资讯</h2>
+            <ol id="ls-info"></ol>
+        </div>
+        <div id="right-sec">
+            <div class="box" id="ct-videos">
+                <h2 class="box-title">相关视频</h2>
+                <ul id="ls-videos"></ul>
+            </div>
+        </div>
+    </div> -->
+    <!-- <div id="ct-sogo" class="container box">
+        <h2 class="box-title" id="title-sogo">热门搜索</h2>
+        <p id="hezuo">独家合作<i id="icon"></i></p>
+        <ul id="ls-sogo-news"></ul>
+    </div> -->
+    <div id="ct-footer">
+        <div id="ct-sponsors"><a href="http://www.cma.gov.cn/" target="_blank"><img
+                    src="//mat1.gtimg.com/pingjs/ext2020/weather/2017/images/sponsor1-a35bcd70e3.png"></a><a
+                href="http://www.nmc.cn/" target="_blank"><img
+                    src="//mat1.gtimg.com/pingjs/ext2020/weather/2017/images/sponsor2-f78a646b62.png"></a><a
+                href="http://www.weather.com.cn/" target="_blank"><img
+                    src="//mat1.gtimg.com/pingjs/ext2020/test2017/sponsor-zgtq.png"></a></div>
+        <script>
+            var NavNoticeSiteName = ["sports", "tech", "games", "cul", "edu", "fashion", "house", "auto", "finance", "ent"]; 
+        </script>
+        <script src="//mat1.gtimg.com/www/chrometips/notification2017_v0118.js"></script>
+        <!--[if !IE]>|xGv00|160405494288ecc3516e240c185c4fd7<![endif]-->
+        <style>
+            .tcopyright {
+                width: 960px;
+                margin: 0 auto;
+                padding: 8px 0;
+                font-size: 12px;
+                line-height: 28px;
+                color: #333;
+                text-align: center;
+                overflow: hidden;
+                clear: both;
+            }
+
+            .tcopyright .en {
+                font-family: Arial;
+            }
+
+            .tcopyright a {
+                color: #333;
+                text-decoration: none;
+            }
+
+            .tcopyright a:hover {
+                color: #bd0a01;
+                text-decoration: underline;
+            }
+
+        </style>
+        <div id="tcopyright" class="tcopyright" bossZone="footer" role="contentinfo">
+            <div>
+                <a href="http://www.tencent.com/" target="_blank" rel="nofollow">关于腾讯</a> | <a
+                    href="http://www.tencent.com/index_e.shtml" target="_blank" rel="nofollow">About Tencent</a> | <a
+                    href="http://www.qq.com/contract.shtml" target="_blank" rel="nofollow">服务协议</a> | <a
+                    href="http://www.qq.com/privacy.htm" target="_blank" rel="nofollow">隐私政策</a> | <a
+                    href="http://open.qq.com/" target="_blank" rel="nofollow">开放平台</a> | <a
+                    href="http://www.tencentmind.com/" target="_blank" rel="nofollow">广告服务</a> | <a
+                    href="http://hr.tencent.com/" target="_blank" rel="nofollow">腾讯招聘</a> | <a
+                    href="http://gongyi.qq.com/" target="_blank" rel="nofollow">腾讯公益</a> | <a
+                    href="http://service.qq.com/" target="_blank" rel="nofollow">客服中心</a> | <a href="http://news.qq.com/zt2014/2014qtnews/ccybspxd.htm
+" target="_blank" rel="nofollow">举报中心</a> | <a href="http://www.qq.com/map/" target="_blank" rel="nofollow">网站导航</a>
+            </div>
+            <div class="en">Copyright &copy; 1998 - 2020 Tencent. All Rights Reserved</div>
+            <div>
+                <a href="http://www.tencent.com/" target="_blank" rel="nofollow">腾讯公司</a> <a
+                    href="http://www.tencent.com/zh-cn/le/copyrightstatement.shtml" target="_blank"
+                    rel="nofollow">版权所有</a>
+            </div>
+        </div>
+        <!--[if !IE]>|xGv00|b6614ae390f3ba6a8cbcc269055b42da<![endif]-->
+    </div>
+    <!--右侧浮层-->
+    <div id="ct-pop-mobile">
+        <div class="item ct-xcx"><span>小程序</span>
+            <div class="ct-inner">随时随地看天气 <img
+                    src="//mat1.gtimg.com/pingjs/ext2020/weather/2017/images/xcxma-2d87c16369.png" alt="小程序码"></div>
+        </div>
+        <div class="item ct-weixin"><span>微信</span>
+            <div class="ct-inner">关注获取更多资讯 <img
+                    src="//mat1.gtimg.com/pingjs/ext2020/weather/2017/images/weixinma-dc8968729b.png" alt="微信码"></div>
+        </div>
+    </div>
+    <script src="//mat1.gtimg.com/pingjs/ext2020/test2017/echarts.js"></script>
+    <script charset="utf-8" src="//mat1.gtimg.com/sports/js/lib/require.min.js"></script>
+    <script charset="utf-8" src="//mat1.gtimg.com/pingjs/ext2020/weather/2017/scripts/main-b0d370c158.js"></script>
+    <script charset="gbk" src="//pingjs.qq.com/ping_video.js"></script>
+    <script type="text/javascript">if (typeof (pgvMain) == 'function') pgvMain({
+            virtualDomain: "tianqi.qq.com"
+        });</script>
+</body>
+
+</html>
+<!--[if !IE]>|xGv00|29a736a3a4f704287bbe74d02b75a8b2<![endif]-->

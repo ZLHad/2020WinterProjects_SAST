@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <link href="https://cdn.bootcss.com/font-awesome/5.8.0/css/all.css" rel="stylesheet" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: url("weather/bj.jpg") no-repeat fixed;
+            background-size: 100% 100%;
+        }
+
+        .top {
+            opacity: 0.7;
+            text-align: center;
+        }
+
+        #city {
+            width: 350px;
+            height: 35px;
+            border-radius: 5px;
+            font-size: 20px;
+            margin: 20px 0 0 77px;
+        }
+
+        #select {
+            background-color: rgba(165, 3, 12, 0.99);
+            position: relative;
+            right: 82px;
+            top: -3px;
+            height: 35px;
+            width: 75px;
+            border: 2px white solid;
+            border-radius: 5px;
+        }
+
+        span {
+            display: inline-block;
+            margin: auto;
+        }
+
+        .bottom {
+            display: none;
+            width: 730px;
+            height: 600px;
+            margin: auto;
+            padding-left: 10px;
+        }
+
+        #bottom-top {
+            width: 730px;
+            height: 250px;
+            margin-top: 10px;
+        }
+
+        .bottom-bottom {
+            background-color: rgba(15, 217, 0, 0.7);
+            width: 680px;
+            height: 240px;
+            margin-top: 10px;
+        }
+
+        .day {
+            background-color: rgba(35, 17, 238, 0.59);
+            float: left;
+            width: 97px;
+            height: 240px;
+            margin: 0 3px;
+            text-align: center;
+        }
+
+        .time {
+            display: inline-block;
+            float: left;
+            width: 85px;
+            font-size: 18px;
+            line-height: 20px;
+            text-align: center;
+            color: whitesmoke;
+        }
+
+        .font {
+            font-size: 13px;
+            color: whitesmoke;
+            margin-bottom: 10px;
+        }
+
+        svg {
+            height: 100px;
+            ;
+            overflow: hidden;
+        }
+
+        .wea {
+            width: 40px;
+            height: 36.8px;
+        }
+
+        circle {
+            transition: cy 1s ease;
+        }
+
+        path {
+            transition: d 1s ease;
+        }
+
+        h2 {
+            color: rgb(167, 255, 168);
+        }
+
+        h3 {
+            color: lightgoldenrodyellow;
+        }
+
+        .search-box {
+            opacity: 0.7;
+            text-align: center;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #2f3640;
+            height: 40px;
+            border-radius: 40px;
+            padding: 10px;
+        }
+
+        .search-btn {
+            color: #e84118;
+            float: right;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #2f3640;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: 0.4s;
+            text-decoration: none;
+        }
+
+        .search-txt {
+            border: none;
+            background: none;
+            outline: none;
+            float: left;
+            padding: 0;
+            color: white;
+            font-size: 16px;
+            transition: 0.4s;
+            line-height: 40px;
+            width: 0;
+        }
+
+        .search-box:hover>.search-txt {
+            width: 240px;
+            padding: 0 6px;
+        }
+
+        .search-box:hover>.search-btn {
+            background: white;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- 
+    <div class="top">
+        <h2>天气查询</h2>
+        <div class="select">
+            <input type="text" placeholder="查询的城市名" id="city">
+            <input type="button" value="查询" id="select">
+        </div>
+    </div> -->
+    <div class="top">
+        <h2>天气查询</h2>
+    </div>
+
+    <div class="search-box">
+        <input class="search-txt" type="text" placeholder="Type to search" />
+        <a class="search-btn" href="#">
+            <i class="fas fa-search"></i>
+        </a>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="bottom">
+        <h3>七日天气</h3>
+        <div id="bottom-top">
+            <div id="0" class="day"></div>
+            <div id="1" class="day"></div>
+            <div id="2" class="day"></div>
+            <div id="3" class="day"></div>
+            <div id="4" class="day"></div>
+            <div id="5" class="day"></div>
+            <div id="6" class="day"></div>
+        </div>
+        <h3>分时段预报</h3>
+        <div class="bottom-bottom">
+            <div id="temperature"></div>
+            <svg version="1.1" width="680" xmlns="http://www.w3.org/2000/svg">
+                <path id="path" fill="none" stroke="#f68227" stroke-width="2"></path>
+                //d="M42.5,49L127.5,19L212.5,9L297.5,9L382.5,29L467.5,39L552.5,49L637.5,159"style="-webkit-tap-highlight-color:
+                rgba(0, 0, 0, 0);"
+                <circle cx="42.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle0"></circle>
+                <circle cx="127.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle1"></circle>
+                <circle cx="212.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle2"></circle>
+                <circle cx="297.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle3"></circle>
+                <circle cx="382.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle4"></circle>
+                <circle cx="467.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle5"></circle>
+                <circle cx="552.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle6"></circle>
+                <circle cx="637.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle7"></circle>
+            </svg>
+            <div id="wind"></div>
+        </div>
+    </div>
+</body>
+
+</html>
+<script>
+
+
+    $(function () {
+        $('.search-btn').click(function () {
+            $.ajax({
+                type: 'GET',
+                url: 'https://www.tianqiapi.com/api/',
+                data: 'version=v1&appid=18254637&appsecret=9CyWNnCC&city=' + document.querySelector(".search-txt").value,
+                dataType: 'JSON',
+                error: function () {
+                    alert('网络错误');
+                },
+                success: function (res) {
+                    $('.bottom').css('display', 'block');
+                    localStorage.setItem("res", JSON.stringify(res));//将结果处理为字符串保存
+                    console.log(res);
+                    // console.log(res.data[0].wea);
+                    console.log(res.data.length);
+                    for (var i = 0; i < res.data.length; i++) {//七日天气
+                        $('#day' + i).remove();//清理旧数据
+                        $('<div id="day' + i + '"></div>').appendTo('#' + i);//
+                        $('<div class="font">' + res.data[i].day + '</div>').appendTo('#day' + i);//日期
+                        var wea1 = '', wea2 = '';
+                        for (var j = 0; j < res.data[i].wea.length; j++) {//分析气象数据
+                            // console.log(res.data[i].wea.charAt(j));
+                            if (res.data[i].wea.charAt(j) !== "转") {
+                                wea2 += res.data[i].wea.charAt(j);
+                            } else {
+                                wea1 = wea2;
+                                wea2 = '';
+                            }
+                        }
+                        if (wea1 === '') {
+                            wea1 = wea2;
+                        }
+                        // console.log(wea1,"wea2:"+wea2);
+                        $('<img src="weather/' + wea1 + '.gif">').appendTo('#day' + i);
+                        $('<img src="weather/' + wea2 + '.gif">').appendTo('#day' + i);//气象图标
+                        $('<div class="font">' + res.data[i].wea + '</div>').appendTo('#day' + i);//气象说明
+                        $('<div class="font">' + res.data[i].tem1 + '-' + res.data[i].tem2 + '</div>').appendTo('#day' + i);//温度
+                        $('<div class="font">' + res.data[i].win[0] + res.data[i].win_speed + '</div>').appendTo('#day' + i);//风向
+                    }
+                    path(res.data[0]);
+                    $('#' + 0).css('background-color', 'rgba(135, 17, 238, 0.79)');
+                    for (var j = 1; j < 7; j++) {
+                        $('#' + j).css('background-color', 'rgba(35, 17, 238, 0.59)');
+                    }
+                }
+            });
+        });
+        $('.day').click(function () {
+            // console.log(this.id);
+            var res = eval("(" + localStorage.getItem("res") + ")");//获取数据
+            for (var i = 0; i < 7; i++) {
+                $('#' + i).css('background-color', 'rgba(35, 17, 238, 0.59)');
+            }
+            $('#' + this.id).css('background-color', 'rgba(135, 17, 238, 0.79)');
+            // console.log(res);
+            path(res.data[this.id]);//刷新路径
+        });
+        function path(data) {//分时段预报
+            var cy = [];
+            $('circle').attr("r", 0);
+            $('.time').remove();//清理旧数据
+            for (var k = 0; k < data.hours.length; k++) {
+                $('<div class="time">' + data.hours[k].day + '<br/><img src="weather/' + data.hours[k].wea + '.gif" class="wea"><br />' + data.hours[k].tem + '</div>').appendTo('#temperature');//温度信息
+                $('<div class="time">' + data.hours[k].win + '<br />' + data.hours[k].win_speed + '</div>').appendTo('#wind');//风向信息
+                cy[k] = (90 - (number(data.hours[k].tem) - number(data.tem2)) * 80 / (number(data.tem1) - number(data.tem2)));//计算温度点纵坐标
+                // console.log(cy[k]);
+                // console.log(document.querySelector('.circle' + k));
+                document.querySelector('.circle' + k).setAttribute("r", 4);
+                document.querySelector('.circle' + k).setAttribute("cy", cy[k]);//绘制温度点
+                // console.log(document.querySelectorAll('.circle')[k].cy);
+            }
+            $('.time').width((680 / cy.length) + 'px');//修改文字位置
+            document.querySelector('.circle0').setAttribute("cx", (680 / cy.length / 2));//初始点坐标
+            var str = "M" + (680 / cy.length / 2) + "," + cy[0];//初始折线起始点
+            for (var m = 1; m < cy.length; m++) {
+                str += "L" + ((680 / cy.length / 2) + m * 680 / cy.length) + "," + cy[m];//计算路径坐标
+                document.querySelector('.circle' + m).setAttribute("cx", ((680 / cy.length / 2) + m * 680 / cy.length));//计算点坐标
+            }
+            document.querySelector('#path').setAttribute("d", str);//绘制折线
+        }
+        function number(str) {//提取数字
+            var num = '';
+            for (var i = 0; i < str.length; i++) {
+                if (str.charAt(i) != '℃') {
+                    num += str.charAt(i);
+                } else {
+                    return num;
+                }
+            }
+        }
+    });
+</script>
