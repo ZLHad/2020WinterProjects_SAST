@@ -4,11 +4,11 @@ img {
     margin: 0 auto;
 }
 
-body {
+#app {
     background-image: url('/img/back.jpg');
-    background-repeat: repeat-x;
-    background-size: auto;
-    background-size: 100%;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 #logo {

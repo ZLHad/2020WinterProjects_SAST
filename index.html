@@ -14,50 +14,51 @@
 </head>
 
 <body>
-    <div class="header">
-        <img src="img/logo.png" alt="logo" id="logo">
-        <div class="search-box">
-            <input class="search-txt" type="text" placeholder="Type a city to search" />
-            <a class="search-btn" href="#">
-                <i class="fas fa-search"></i>
-            </a>
+    <div id="app">
+        <div class="header">
+            <img src="img/logo.png" alt="logo" id="logo">
+            <div class="search-box">
+                <input class="search-txt" type="text" placeholder="Type a city to search" />
+                <a class="search-btn" href="#">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
         </div>
+        <div class="bottom">
+            <h3>分时段预报</h3>
+            <div class="bottom-bottom">
+                <div id="temperature"></div>
+                <svg version="1.1" width="680" xmlns="http://www.w3.org/2000/svg">
+                    <path id="path" fill="none" stroke="#f68227" stroke-width="2"></path>
+
+                    <circle cx="42.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle0"></circle>
+                    <circle cx="127.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle1"></circle>
+                    <circle cx="212.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle2"></circle>
+                    <circle cx="297.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle3"></circle>
+                    <circle cx="382.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle4"></circle>
+                    <circle cx="467.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle5"></circle>
+                    <circle cx="552.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle6"></circle>
+                    <circle cx="637.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle7"></circle>
+                </svg>
+                <div id="wind"></div>
+            </div>
+            <br>
+            <h3>七日天气</h3>
+            <div id="bottom-top">
+                <div id="0" class="day"></div>
+                <div id="1" class="day"></div>
+                <div id="2" class="day"></div>
+                <div id="3" class="day"></div>
+                <div id="4" class="day"></div>
+                <div id="5" class="day"></div>
+                <div id="6" class="day"></div>
+            </div>
+
+        </div>
+        <footer>
+            <div id="copyright">Copyright © 2020 ZLH .Partial rights reserved.</div>
+        </footer>
     </div>
-    <div class="bottom">
-        <h3>分时段预报</h3>
-        <div class="bottom-bottom">
-            <div id="temperature"></div>
-            <svg version="1.1" width="680" xmlns="http://www.w3.org/2000/svg">
-                <path id="path" fill="none" stroke="#f68227" stroke-width="2"></path>
-
-                <circle cx="42.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle0"></circle>
-                <circle cx="127.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle1"></circle>
-                <circle cx="212.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle2"></circle>
-                <circle cx="297.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle3"></circle>
-                <circle cx="382.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle4"></circle>
-                <circle cx="467.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle5"></circle>
-                <circle cx="552.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle6"></circle>
-                <circle cx="637.5" cy="10" r="0" fill="#f68227" stroke="#f68227" class="circle7"></circle>
-            </svg>
-            <div id="wind"></div>
-        </div>
-        <br>
-        <h3>七日天气</h3>
-        <div id="bottom-top">
-            <div id="0" class="day"></div>
-            <div id="1" class="day"></div>
-            <div id="2" class="day"></div>
-            <div id="3" class="day"></div>
-            <div id="4" class="day"></div>
-            <div id="5" class="day"></div>
-            <div id="6" class="day"></div>
-        </div>
-
-    </div>
-    <footer>
-        <div id="copyright">Copyright © 2020 ZLH .Partial rights reserved.</div>
-    </footer>
-
 </body>
 <script src="js/maker.js"></script>
 
